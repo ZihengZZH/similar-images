@@ -1,3 +1,4 @@
-from src.train_model import train_model
+from src.similar import SimilarImage
 
-train_model()
+new_inst = SimilarImage()
+new_inst.train_model()

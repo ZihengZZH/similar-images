@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 
-def mnist_model(input, reuse=False):
+def Siamese(input, reuse=False):
     with tf.name_scope("model"):
         with tf.variable_scope("conv1") as scope:
             net = tf.contrib.layers.conv2d(input,
