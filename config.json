@@ -1,0 +1,10 @@
+{
+    "network": {
+        "batch_size": 1024,
+        "epoch": 2000,
+        "step2save": 100
+    },
+    "mnist": {
+        "size": 28
+    }
+}

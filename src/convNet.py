@@ -1,11 +1,13 @@
+import os, json
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 
-flags = tf.app.flags
-FLAGS = flags.FLAGS
 
-def Siamese(input, reuse=False):
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+
+
+def ConvNet(input, reuse=False):
     with tf.name_scope("model"):
         with tf.variable_scope("conv1") as scope:
             net = tf.contrib.layers.conv2d(input,

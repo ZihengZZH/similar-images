@@ -25,11 +25,14 @@ class DataMNIST(Dataset):
     def vis(self):
         batch_size = 5
         ls, rs, xs = self.get_siamese_batch(batch_size)
-        fig, axarr = plt.subplots(batch_size, 2, figsize=(10,10))
+        fig, axarr = plt.subplots(batch_size, 3, figsize=(8,8))
         for idx, (l, r, x) in enumerate(zip(ls, rs, xs)):
-            print("row", idx, "label:", "similar" if x else "dissimilar")
+            same = "similar" if x else "dissimilar"
+            print("row", idx, "label:", same)
             axarr[idx, 0].axis('off')
             axarr[idx, 1].axis('off')
+            axarr[idx, 2].axis('off')
             axarr[idx, 0].imshow(np.squeeze(l, axis=2))
-            axarr[idx, 1].imshow(np.squeeze(r, axis=2))
+            axarr[idx, 1].text(0.5, 0.5, same, size=15, ha='center', va='center')
+            axarr[idx, 2].imshow(np.squeeze(r, axis=2))
         plt.savefig('images/mnist.png')
